@@ -13,26 +13,28 @@
             $.getScript('//connect.facebook.net/en_UK/all.js', function(){
                 FB.init({
                     appId: '1444445472447712',
-                    channelUrl: '//easyevents.tk/channel.html',
+                    channelUrl: '//localhost/channel.html'
                 });
-                $('#loginbutton,#feedbutton').removeAttr('disabled');
-                FB.getLoginStatus(function(response){
-                    if (response.authResponse)
-                    {
-                        console.log(response.authResponse)
-                    } else
-                    {
-                        window.loggedIn=false;
-                    }
-                }, true);
+//                $('#loginbutton').removeAttr('disabled');
+//                FB.getLoginStatus(function(response){
+//                    if (response.authResponse)
+//                    {
+//                        console.log(response.authResponse);
+//                    } else
+//                    {
+//                        window.loggedIn=false;
+//                    }
+//                }, true);
             });
         });
     </script>
 </head>
 
 <body>
+    <div id="fb-root"></div>
     <div data-role="page" class="fb-login-page">
-        <div class="fb-login-button" size="xlarge" data-width="600"></div>
+        <div class="fb-login-button" autologoutlink="true" data-show-faces="true" data-width="200"
+             data-max-rows="2" size="xlarge">
     </div>
 </body>
 </html>
