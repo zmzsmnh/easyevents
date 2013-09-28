@@ -10,24 +10,24 @@ var http = require('http');
 var path = require('path');
 var engine = require('ejs-locals');
 var MongoStore = require('connect-mongo')(express);
-var db = require('./models/mongo').db;
+//var db = require('./models/mongo').db;
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 80)
 app.set('views', __dirname + '/views');
-//app.engine('ejs', engine);
+app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.cookieParser());
+app.use(express.cookieParser('easyevents'));
 app.use(express.session({
-    secret: "easyevents",
+    secret: 'easyevents',
     store: new MongoStore({
-        db: db
+        db: 'session'
     })
 }));
 app.use(app.router);
@@ -39,7 +39,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.post('/user/login', user.login);
+//app.post('/user/login', user.login);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
