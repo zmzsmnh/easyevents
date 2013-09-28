@@ -4,5 +4,11 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+
+    if(req.session.user) {
+        res.render('index', { title: 'Express' });
+    } else {
+        res.render('login');
+        console.log('login');
+    }
 };
