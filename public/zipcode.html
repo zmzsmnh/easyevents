@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div data-role="dialog" data-close-btn="none">
+    <div data-role="header" data-theme="d">
+        <h1>Please input your zip code</h1>
+    </div>
+
+    <div data-role="content">
+        <label class="ui-input-text" for="m_zip">Zipcode:</label>
+        <input type="number" name="m_zip" id="m_zip" value="">
+        <a id="a_zip_save" href="#" data-role="button" data-theme="b">Save</a>
+    </div>
+    <script type="text/javascript">
+
+        $("#a_zip_save").click(function(){
+            if($("#m_zip").val() == '') {
+                $("#m_zip").focus();
+                return -1;
+            }
+            local['zip'] = $("#m_zip").val();
+            $('.ui-dialog').dialog('close');
+            bindEvents();
+        });
+    </script>
+</div>
+</body>
+</html>

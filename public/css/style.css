@@ -11,3 +11,15 @@ a {
     text-align: center;
     padding-top: 10em;
 }
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.form label.ui-input-text {
+    margin-bottom: 1em;
+}

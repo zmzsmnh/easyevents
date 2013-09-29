@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var collectionName = 'expense';
+var collectionName = 'bill';
 var db = require('./mongo').db;
 var dal = db.collection(collectionName);
 
