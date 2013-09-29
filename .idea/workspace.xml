@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d53f7c6e-9453-40ec-bd9d-bddb86a2d6a1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/bill.js" afterPath="$PROJECT_DIR$/routes/bill.js" />
     </list>
     <ignored path="easyevents.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,7 +108,7 @@
       <file leaf-file-name="bill.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/bill.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="24" selection-start="1868" selection-end="1868" vertical-scroll-proportion="1.5482234">
+            <state line="70" column="4" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.39086294">
               <folding />
             </state>
           </provider>
@@ -610,7 +609,11 @@
       <created>1380478617267</created>
       <updated>1380478617267</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="modify a lot">
+      <created>1380479018104</created>
+      <updated>1380479018104</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -808,7 +811,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/bill.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="24" selection-start="1868" selection-end="1868" vertical-scroll-proportion="1.5482234">
+        <state line="70" column="4" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.39086294">
           <folding />
         </state>
       </provider>
