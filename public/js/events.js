@@ -236,8 +236,10 @@ function bindEvents() {
                 var mapping = res.mapping;
                 $("#p_list").empty();
                 $.each(res.results, function(partner, amount) {
+                    if(amount != null){
                     var html = "<li id='" + partner + "' data-amount='" + amount + "'><a href=\"#\"><div class='half'>" + mapping[partner] + "</div>" + amount + "</a></li>";
                     $("#p_list").append(html);
+                    }
                 });
                 $("#p_list").listview('refresh');
                 $("#p_list li").click(function() {

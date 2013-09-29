@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d53f7c6e-9453-40ec-bd9d-bddb86a2d6a1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/bill.js" afterPath="$PROJECT_DIR$/routes/bill.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/events.js" afterPath="$PROJECT_DIR$/public/js/events.js" />
     </list>
     <ignored path="easyevents.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="events.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="234" column="39" selection-start="11476" selection-end="11483" vertical-scroll-proportion="0.0">
+            <state line="241" column="21" selection-start="11929" selection-end="11929" vertical-scroll-proportion="0.3147208">
               <folding />
             </state>
           </provider>
@@ -106,10 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bill.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="bill.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/bill.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="13" selection-start="2777" selection-end="2777" vertical-scroll-proportion="0.67005074">
+            <state line="84" column="13" selection-start="2777" selection-end="2777" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,9 +177,9 @@
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/public/js/events.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/bill.js" />
+        <option value="$PROJECT_DIR$/public/js/events.js" />
       </list>
     </option>
   </component>
@@ -618,7 +618,11 @@
       <created>1380479600655</created>
       <updated>1380479600655</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="modify a lot">
+      <created>1380480132316</created>
+      <updated>1380480132316</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -793,13 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="39" selection-start="11476" selection-end="11483" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="51" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.0">
@@ -816,7 +813,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/bill.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="13" selection-start="2777" selection-end="2777" vertical-scroll-proportion="0.67005074">
+        <state line="84" column="13" selection-start="2777" selection-end="2777" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="241" column="21" selection-start="11929" selection-end="11929" vertical-scroll-proportion="0.3147208">
           <folding />
         </state>
       </provider>
