@@ -55,9 +55,12 @@ $(function(){
                     $("#a_left").removeClass('add').addClass('Back').show();
                     $("#a_right .ui-btn-text").text("Claim");
                     $("#a_right .ui-icon").removeClass("ui-icon-plus").addClass("ui-icon-edit");
-                    $("#a_right").addClass('claim').attr("data-icon", "edit");
+                    $("#a_right").addClass('claim').attr("data-icon", "edit").show();
                     var backtohome = function() {
-                        location.reload();
+                        $("#a_left").hide();
+                        $("#a_right").hide();
+                        $("#div_events > div").not(".list").hide();
+                        $("#div_events > div.list").show();
                     };
                     var claimexpense = function() {
                         $.each(event.participants, function(i, participant) {
@@ -74,8 +77,10 @@ $(function(){
                             $("#a_right .ui-btn-text").text("Claim");
                             $("#a_right .ui-icon").removeClass("ui-icon-arrow-r").addClass("ui-icon-edit");
                             $("#a_right").addClass('claim').attr("data-icon", "edit");
+                            $("#a_left").unbind('click').click(backtohome);
                             $("#lb_title").text(navtitles[0]);
                         });
+                        $("#lb_title").text("Claim an expense");
                         $("#a_right").unbind('click').click(function() {
                             var claim = {};
                             claim.eventid = event._id;
