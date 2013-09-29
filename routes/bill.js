@@ -71,6 +71,7 @@ exports.listbillsummary = function(req, res) {
         if(bills.length == 0) {
             res.send();
         }
+        console.log(bills);
         var summary = {};
         for(var i in bills) {
             if(bills[i].creditor != userid) {
