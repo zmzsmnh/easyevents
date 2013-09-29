@@ -233,7 +233,6 @@ function bindEvents() {
             $("#div_events > div").not(".payment").hide();
             $("#div_events > div.payment").show();
             $.getJSON('/expense/summary', function(res) {
-                $("#p_list").empty();
                 var mapping = res.mapping;
                 $.each(res.results, function(partner, amount) {
                     var html = "<li id='" + partner + "' data-amount='" + amount + "'><a href=\"#\"><div class='half'>" + mapping[partner] + "</div>" + amount + "</a></li>";
