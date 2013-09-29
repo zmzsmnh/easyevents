@@ -82,7 +82,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="55" selection-start="216" selection-end="216" vertical-scroll-proportion="0.205298">
+            <state line="47" column="13" selection-start="597" selection-end="597" vertical-scroll-proportion="0.9254967">
               <folding />
             </state>
           </provider>
@@ -574,7 +574,11 @@
       <created>1380472416681</created>
       <updated>1380472416681</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="modify a lot">
+      <created>1380472729144</created>
+      <updated>1380472729144</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -772,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="55" selection-start="216" selection-end="216" vertical-scroll-proportion="0.205298">
+        <state line="47" column="13" selection-start="597" selection-end="597" vertical-scroll-proportion="0.9254967">
           <folding />
         </state>
       </provider>
