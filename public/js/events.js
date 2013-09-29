@@ -66,6 +66,9 @@ $(function(){
                         bindEvents();
                     };
                     var claimexpense = function() {
+                        $("#c_participants").empty();
+                        $("#c_des").val("");
+                        $("#c_amount").val("");
                         $.each(event.participants, function(i, participant) {
                             $("#c_participants").append("<input type=\"checkbox\" id=" + participant._id + " checked=true><label for=" + participant._id + ">" + participant.name + "</label>").trigger("create");
                         })
