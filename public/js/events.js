@@ -111,6 +111,7 @@ function bindEvents() {
         $("#a_right").addClass('next').attr("data-icon", "arrow-r").show();
         currentStep=1;
         $("#lb_title").text(navtitles[currentStep]);
+        $("#e_name").focus();
 
         $("#a_right.next").unbind('click').click(function(){
             currentStep++;
@@ -142,6 +143,7 @@ function bindEvents() {
                         location.reload();
                     });
                 });
+                $("input[data-type=search]:visible").focus();
             }
         });
 
