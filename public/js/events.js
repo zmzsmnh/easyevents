@@ -58,9 +58,12 @@ $(function(){
                     $("#a_right").addClass('claim').attr("data-icon", "edit").show();
                     var backtohome = function() {
                         $("#a_left").hide();
-                        $("#a_right").hide();
                         $("#div_events > div").not(".list").hide();
                         $("#div_events > div.list").show();
+                        $("#a_right .ui-btn-text").text("Add");
+                        $("#a_right .ui-icon").removeClass("ui-icon-edit").addClass("ui-icon-plus");
+                        $("#a_right").removeClass('claim').addClass('add').attr("data-icon", "edit").show();
+                        bindEvents();
                     };
                     var claimexpense = function() {
                         $.each(event.participants, function(i, participant) {
