@@ -91,7 +91,7 @@
       <file leaf-file-name="claimverify.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/claimverify.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="48" selection-start="0" selection-end="1264" vertical-scroll-proportion="-18.208334">
+            <state line="23" column="39" selection-start="804" selection-end="804" vertical-scroll-proportion="-11.666667">
               <folding />
             </state>
           </provider>
@@ -106,10 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bill.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="bill.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/bill.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="23" selection-start="1986" selection-end="2001" vertical-scroll-proportion="0.0">
+            <state line="61" column="24" selection-start="1868" selection-end="1868" vertical-scroll-proportion="1.5482234">
               <folding />
             </state>
           </provider>
@@ -133,10 +133,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="51" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.67715234">
+            <state line="51" column="51" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,8 +178,8 @@
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/js/events.js" />
-        <option value="$PROJECT_DIR$/routes/bill.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/bill.js" />
       </list>
     </option>
   </component>
@@ -606,7 +606,11 @@
       <created>1380478492528</created>
       <updated>1380478492528</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="modify a lot">
+      <created>1380478617267</created>
+      <updated>1380478617267</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -760,13 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/claimverify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="48" selection-start="0" selection-end="1264" vertical-scroll-proportion="-18.208334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="13" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0">
@@ -795,16 +792,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bill.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="23" selection-start="1986" selection-end="2001" vertical-scroll-proportion="0.0">
+        <state line="51" column="51" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/public/claimverify.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="51" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.67715234">
+        <state line="23" column="39" selection-start="804" selection-end="804" vertical-scroll-proportion="-11.666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bill.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="24" selection-start="1868" selection-end="1868" vertical-scroll-proportion="1.5482234">
           <folding />
         </state>
       </provider>

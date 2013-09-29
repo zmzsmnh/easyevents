@@ -59,6 +59,7 @@ exports.listclaims = function(req, res) {
 exports.verifyclaim = function(req, res) {
     var claimid = req.body.id;
     var status = parseInt(req.body.status);
+    console.log(status);
     billDAL.update({_id: new ObjectId(claimid)}, {$set: {status: status}}, function(err, count) {
         res.send(count);
     });
@@ -67,11 +68,11 @@ exports.verifyclaim = function(req, res) {
 exports.listbillsummary = function(req, res) {
     var userid = req.session.user._id;
     console.log(userid);
-    billDAL.find({status: 1, $or: [{creditor: userid}, {debitor: userid}]}).toArray(function(err, bills) {
+    billDAL.find({$or: [{creditor: userid, status: 1}, {debitor: userid, status: 1}]}).toArray(function(err, bills) {
         if(bills.length == 0) {
             res.send();
+            return ;
         }
-        console.log(bills);
         var summary = {};
         for(var i in bills) {
             if(bills[i].creditor != userid) {
