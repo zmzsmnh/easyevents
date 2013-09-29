@@ -30,68 +30,70 @@ $(function(){
         $.each(events, function(i, event) {
             var html = "<li><a href=\"#\"><h2>" + event.name + "</h2><p>" + event.start_time + " " + event.start_date + " - " + event.end_time + " " + event.end_date + "</p><span class='hide'>" + JSON.stringify(event) + "</span></a></li>"
             $("#e_events").append(html);
-            $("#e_events").listview('refresh');
-            $("#e_events li").click(function() {
-                $(this).siblings("li").removeClass("active");
-                $(this).addClass("active");
-                var event = $.parseJSON($(this).find("a span").text());
-                $("#ed_name").text(event.name);
-                var description = event.start_time + " " + event.start_date + " - " + event.end_time + " " + event.end_date + " with ";
-                $.each(event.participants, function(i, participant) {
-                    description += participant.name;
-                    description += ", ";
-                })
-                $("#ed_description").text(description);
-                $("#ed_places").empty();
-                $.each(event.places, function(i, place) {
-                    $("#ed_places").append("<p>" + place.Title + " - " + place.Address + "," + place.City + "," + place.State + "</p>");
-                })
-                $("#div_events > div").not(".detail").hide();
-                $("#div_events > div.detail").show();
-                $("#a_left .ui-btn-text").text("Back");
-                $("#a_left").removeClass('add').addClass('Back').show();
-                $("#a_right .ui-btn-text").text("Claim");
-                $("#a_right .ui-icon").removeClass("ui-icon-plus").addClass("ui-icon-edit");
-                $("#a_right").addClass('claim').attr("data-icon", "edit");
-                var backtohome = function() {
-                    location.reload();
-                };
-                var claimexpense = function() {
+            if(i == events.length - 1){
+                $("#e_events").listview('refresh');
+                $("#e_events li").click(function() {
+                    $(this).siblings("li").removeClass("active");
+                    $(this).addClass("active");
+                    var event = $.parseJSON($(this).find("a span").text());
+                    $("#ed_name").text(event.name);
+                    var description = event.start_time + " " + event.start_date + " - " + event.end_time + " " + event.end_date + " with ";
                     $.each(event.participants, function(i, participant) {
-                        $("#c_participants").append("<input type=\"checkbox\" id=" + participant._id + " checked=true><label for=" + participant._id + ">" + participant.name + "</label>").trigger("create");;
+                        description += participant.name;
+                        description += ", ";
                     })
-                    $("#div_events > div").not(".claim").hide();
-                    $("#div_events > div.claim").show();
-                    $("#a_right .ui-btn-text").text("Send");
-                    $("#a_right .ui-icon").removeClass("ui-icon-edit").addClass("ui-icon-arrow-r");
-                    $("#a_right").addClass('send').attr("data-icon", "arrow-r");
-                    $("#a_left").unbind('click').click(function() {
-                        $("#div_events > div").not(".detail").hide();
-                        $("#div_events > div.detail").show();
-                        $("#a_right .ui-btn-text").text("Claim");
-                        $("#a_right .ui-icon").removeClass("ui-icon-arrow-r").addClass("ui-icon-edit");
-                        $("#a_right").addClass('claim').attr("data-icon", "edit");
-                    });
-                    $("#a_right").unbind('click').click(function() {
-                        var claim = {};
-                        claim.eventid = event._id;
-                        claim.description = $("#c_des").val();
-                        claim.total = $("#c_amount").val();
-                        claim.participants = [];
-                        $("#c_participants .ui-checkbox label.ui-checkbox-on").each(function(){
-                            claim.participants.push($(this).attr("for"));
-                        });
-                        $.post('/expense/claim', claim, function(data) {
-                            $("#a_left").click();
-                            $("#a_left").unbind('click').click(backtohome);
-                            $("#a_right").unbind('click').click(claimexpense);
-                        });
+                    $("#ed_description").text(description);
+                    $("#ed_places").empty();
+                    $.each(event.places, function(i, place) {
+                        $("#ed_places").append("<p>" + place.Title + " - " + place.Address + "," + place.City + "," + place.State + "</p>");
                     })
-                };
-                $("#a_left").unbind('click').click(backtohome);
-                $("#a_right").unbind('click').click(claimexpense);
-            })
-        })
+                    $("#div_events > div").not(".detail").hide();
+                    $("#div_events > div.detail").show();
+                    $("#a_left .ui-btn-text").text("Back");
+                    $("#a_left").removeClass('add').addClass('Back').show();
+                    $("#a_right .ui-btn-text").text("Claim");
+                    $("#a_right .ui-icon").removeClass("ui-icon-plus").addClass("ui-icon-edit");
+                    $("#a_right").addClass('claim').attr("data-icon", "edit");
+                    var backtohome = function() {
+                        location.reload();
+                    };
+                    var claimexpense = function() {
+                        $.each(event.participants, function(i, participant) {
+                            $("#c_participants").append("<input type=\"checkbox\" id=" + participant._id + " checked=true><label for=" + participant._id + ">" + participant.name + "</label>").trigger("create");
+                        })
+                        $("#div_events > div").not(".claim").hide();
+                        $("#div_events > div.claim").show();
+                        $("#a_right .ui-btn-text").text("Send");
+                        $("#a_right .ui-icon").removeClass("ui-icon-edit").addClass("ui-icon-arrow-r");
+                        $("#a_right").addClass('send').attr("data-icon", "arrow-r");
+                        $("#a_left").unbind('click').click(function() {
+                            $("#div_events > div").not(".detail").hide();
+                            $("#div_events > div.detail").show();
+                            $("#a_right .ui-btn-text").text("Claim");
+                            $("#a_right .ui-icon").removeClass("ui-icon-arrow-r").addClass("ui-icon-edit");
+                            $("#a_right").addClass('claim').attr("data-icon", "edit");
+                        });
+                        $("#a_right").unbind('click').click(function() {
+                            var claim = {};
+                            claim.eventid = event._id;
+                            claim.description = $("#c_des").val();
+                            claim.total = $("#c_amount").val();
+                            claim.participants = [];
+                            $("#c_participants .ui-checkbox label.ui-checkbox-on").each(function(){
+                                claim.participants.push($(this).attr("for"));
+                            });
+                            $.post('/expense/claim', claim, function(data) {
+                                $("#a_left").click();
+                                $("#a_left").unbind('click').click(backtohome);
+                                $("#a_right").unbind('click').click(claimexpense);
+                            });
+                        })
+                    };
+                    $("#a_left").unbind('click').click(backtohome);
+                    $("#a_right").unbind('click').click(claimexpense);
+                });
+            }
+        });
     })
 })
 
@@ -176,10 +178,13 @@ function bindEvents() {
     })
 
     $("#li_cl").click(function() {
+        $("#a_left").hide();
+        $("#a_right").hide();
         $("#div_events > div").not(".check").hide();
         $("#div_events > div.check").show();
         $.getJSON('/expense/check', function(res) {
             $("#c_list").empty();
+            var mapping = res.mapping;
             $.each(res.results, function(i, bill) {
                 var partner = "";
                 var amount = 0;
@@ -190,9 +195,14 @@ function bindEvents() {
                     partner = bill.creditor;
                     amount = bill.amount;
                 }
-                var html = "<li id='" + bill._id + "'><a href=\"#\">" + partner + " : " + amount + "</a></li>";
+                var html = "<li id='" + bill._id + "' data-amount='" + amount + "'><a href=\"#\">" + bill.description + "    >     " + mapping[partner] + " : " + amount + "</a></li>";
                 $("#c_list").append(html);
                 $("#c_list").listview('refresh');
+            });
+            $("#c_list li").click(function() {
+                $("#c_list li.active").removeClass("active");
+                $(this).addClass("active");
+                $("#a_claimverify_dialog").click();
             })
         })
     })

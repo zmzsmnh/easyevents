@@ -17,7 +17,13 @@ exports.add = function(req, res) {
 }
 
 exports.listmine = function(req, res) {
-    var userid = req.session.user[0]._id;
+    var user = req.session.user;
+    console.log(user);
+    if(req.session.user instanceof Array) {
+        user = req.session.user[0];
+    }
+    var userid = user._id;
+    console.log(req.session);
     eventDAL.find({"participants._id": userid}).limit(10).toArray(function(err, events) {
         res.send(events);
     });

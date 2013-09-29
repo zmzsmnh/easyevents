@@ -42,11 +42,14 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/user/login', user.login);
+app.get('/user/logout', user.logout);
 app.get('/user/list', user.list);
 app.post('/event/add', event.add);
 app.get('/event/me', event.listmine);
 app.post('/expense/claim', expense.claim);
 app.get('/expense/check', expense.listclaims);
+app.post('/expense/verify', expense.verifyclaim);
+app.get('/expense/summary', expense.listbillsummary);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

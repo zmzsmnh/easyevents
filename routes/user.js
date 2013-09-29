@@ -17,19 +17,39 @@ exports.list = function(req, res){
 exports.login = function(req, res) {
     var user = req.body;
     user._id = user.id;
-    userDAL.findOne(user, function(err, dbuser) {
-        if(dbuser) {
-            req.session.user = dbuser;
+    userDAL.findAndModify({_id: user.id}, {}, user, {upsert: true}, function(err, record) {
+        if(err){
+            res.send(500, "something going wrong. T.T");
         } else {
-            console.log(user);
-            userDAL.insert(user, {safe:true}, function(err, record){
-                if(err){
-                    res.send(500, "something going wrong. T.T");
-                } else {
-                    req.session.user = record;
-                    res.send("OK");
-                }
-            })
+            req.session.user = record;
+            res.send("OK");
         }
     })
+//    userDAL.findOne({_id: user.id}, function(err, dbuser) {
+//        if(dbuser) {
+//            userDAL.save(user, {safe:true}, function(err, record){
+//                if(err){
+//                    res.send(500, "something going wrong. T.T");
+//                } else {
+//                    req.session.user = record;
+//                    res.send("OK");
+//                }
+//            })
+//        } else {
+//            console.log(user);
+//            userDAL.insert(user, {safe:true}, function(err, record){
+//                if(err){
+//                    res.send(500, "something going wrong. T.T");
+//                } else {
+//                    req.session.user = record;
+//                    res.send("OK");
+//                }
+//            })
+//        }
+//    })
+}
+
+exports.logout = function(req, res) {
+    delete req.session.user;
+    res.send();
 }

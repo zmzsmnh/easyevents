@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div data-role="dialog">
+    <div data-role="header" data-theme="d">
+        <h1>Verify Claim</h1>
+    </div>
+
+    <div data-role="content">
+        <a id="a_claim_accept" href="#" data-role="button" data-theme="b">Accept</a>
+        <a id="a_claim_decline" href="#" data-role="button" data-theme="c">Decline</a>
+    </div>
+    <script type="text/javascript">
+        var claimid = $("#c_list li.active").attr("id");
+        var amount = $("#c_list li.active").attr("data-amount");
+        if(amount < 0) {
+            $("#a_claim_accept").hide();
+        }
+        $("#a_claim_accept").click(function(){
+            $.post("/expense/verify", {id: claimid, status: 1}, function(data) {
+                $("#c_list li.active").remove();
+                $('.ui-dialog').dialog('close');
+            });
+        });
+        $("#a_claim_decline").click(function(){
+            $.post("/expense/verify", {id: claimid, status: -1}, function(data) {
+                $("#c_list li.active").remove();
+                $('.ui-dialog').dialog('close');
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
