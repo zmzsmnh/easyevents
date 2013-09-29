@@ -94,17 +94,27 @@
         </div>
 
         <div class="block check hide">
+            <a id="a_claimverify_dialog" href="claimverify.html" data-rel="dialog"  data-transition="pop" style="display:none"></a>
             <ul id="c_list" data-role="listview" data-inset="true">
+            </ul>
+        </div>
+
+        <div class="block payment hide">
+            <ul id="p_list" data-role="listview" data-inset="true">
+            </ul>
+        </div>
+
+        <div class="block relation hide">
+            <ul id="r_list" data-role="listview" data-inset="true">
             </ul>
         </div>
     </div><!-- /content -->
     <div data-role="footer">
-        <a id="a_claimverify_dialog" href="claimverify.html" data-rel="dialog"  data-transition="pop" style="display:none"></a>
         <div data-role="navbar" data-iconpos="bottom" data-id="foo1" data-position="fixed">
             <ul>
                 <li id="li_ev"><a href="#" data-icon="grid" class="ui-btn-active ui-state-persist">Events</a></li>
                 <li id="li_cl"><a href="#" data-icon="bars">Claims</a></li>
-                <li id="li_ex"><a href="#" data-icon="home">Expenses</a></li>
+                <li id="li_pm"><a href="#" data-icon="home">Payments</a></li>
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->

@@ -95,3 +95,22 @@ exports.listbillsummary = function(req, res) {
         }
     })
 }
+
+exports.pay = function(req, res) {
+    var receiver = req.body.receiver;
+    var userid = req.session.user._id;
+
+    billDAL.update({status: 1, $or: [{creditor: userid, debitor: receiver}, {debitor: userid, creditor: receiver}]}, {status: 2}, {multi: true}, function(err, count) {
+        res.send(count);
+    });
+}
+
+exports.relations = function(req, res) {
+    var partner = req.query.p;
+    var userid = req.session.user._id;
+
+    billDAL.find({status: 1, $or: [{creditor: partner, debitor: userid}, {debitor: partner, creditor: userid}]}).toArray(function(err, docs){
+        res.send(docs);
+    })
+
+}

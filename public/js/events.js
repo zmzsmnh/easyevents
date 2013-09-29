@@ -102,7 +102,7 @@ function bindEvents() {
         $("#div_events > div").not(".form.step1").hide();
         $("#div_events > div.form.step1").show();
         $("#a_left .ui-btn-text").text("Back");
-        $("#a_left").removeClass('add').addClass('back').show();
+        $("#a_left").removeClass('home').addClass('back').show();
         $("#a_right .ui-btn-text").text("Next");
         $("#a_right .ui-icon").removeClass("ui-icon-plus").addClass("ui-icon-arrow-r");
         $("#a_right").addClass('next').attr("data-icon", "arrow-r").show();
@@ -168,9 +168,11 @@ function bindEvents() {
         });
     });
 
-    $("#foo1 li").click(function() {
-        $(this).siblings(".ui-btn-active").removeClass("ui-btn-active");
-        $(this).addClass("ui-btn-active");
+    $(".ui-footer li").click(function() {
+        $(this).siblings().removeClass("ui-btn-active").removeClass("ui-state-persist");
+        $(this).addClass("ui-btn-active").addClass("ui-state-persist");
+        $(this).siblings("li a.ui-btn").removeClass("ui-btn-active");
+        $(this).find("li a.ui-btn").addClass("ui-btn-active");
     })
 
     $("#li_ev").click(function() {
@@ -195,15 +197,63 @@ function bindEvents() {
                     partner = bill.creditor;
                     amount = bill.amount;
                 }
-                var html = "<li id='" + bill._id + "' data-amount='" + amount + "'><a href=\"#\">" + bill.description + "    >     " + mapping[partner] + " : " + amount + "</a></li>";
+                var html = "<li id='" + bill._id + "' data-amount='" + amount + "'><a href=\"#\"><div class='quater'>" + bill.description + " </div><div class='quater'>" + mapping[partner] + " </div>" + amount + "</a></li>";
                 $("#c_list").append(html);
-                $("#c_list").listview('refresh');
             });
+            $("#c_list").listview('refresh');
             $("#c_list li").click(function() {
                 $("#c_list li.active").removeClass("active");
                 $(this).addClass("active");
                 $("#a_claimverify_dialog").click();
             })
+        });
+
+        $("#li_pm").click(function() {
+            $("#a_left").hide();
+            $("#a_right").hide();
+            $("#div_events > div").not(".payment").hide();
+            $("#div_events > div.payment").show();
+            $.getJSON('/expense/summary', function(res) {
+                $("#p_list").empty();
+                var mapping = res.mapping;
+                $.each(res.results, function(partner, amount) {
+                    var html = "<li id='" + partner + "' data-amount='" + amount + "'><a href=\"#\"><div class='quater'>" + mapping[partner] + "</div>" + amount + "</a></li>";
+                    $("#p_list").append(html);
+                });
+                $("#p_list").listview('refresh');
+                $("#p_list li").click(function() {
+                    $("#p_list li.active").removeClass("active");
+                    $(this).addClass("active");
+                    $("#div_events > div").not(".relation").hide();
+                    $("#div_events > div.relation").show();
+                    $("#a_left .ui-btn-text").text("Back");
+                    $("#a_left").removeClass('home').addClass('back').show();
+                    $("#a_right .ui-btn-text").text("Paid");
+                    $("#a_right").removeClass('add').removeClass('next').removeClass('save').addClass("paid").show();
+                    $("#a_left").unbind('click').click(function() {
+                        $("#a_left").hide();
+                        $("#a_right").hide();
+                        $("#div_events > div").not(".payment").hide();
+                        $("#div_events > div.payment").show();
+                    });
+                    $("#a_right").unbind('click').click(function() {
+                        var receiver = $("#p_list li.active").attr(id);
+                        $.post("/expense/pay", {receiver: receiver}, function(data) {
+                            $("#li_pm").click();
+                        });
+                    });
+
+                    $("#r_list").empty();
+                    $.getJSON("/expense/detail?p="+$("#p_list li.active")[0].id, function(bills) {
+                        $.each(bills, function(i, bill){
+                            var html = "<li id='" + bill._id + "' data-amount='" + bill.amount + "'><a href=\"#\"><div class='quater'>" + bill.description + "</div>" + bill.amount + "</a></li>";
+                            $("#r_list").append(html);
+                        });
+                        $("#r_list").listview('refresh');
+                    })
+                })
+            });
+
         })
     })
 }

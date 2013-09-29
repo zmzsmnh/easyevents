@@ -50,6 +50,8 @@ app.post('/expense/claim', expense.claim);
 app.get('/expense/check', expense.listclaims);
 app.post('/expense/verify', expense.verifyclaim);
 app.get('/expense/summary', expense.listbillsummary);
+app.post('/expense/pay', expense.pay);
+app.get('/expense/detail', expense.relations);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

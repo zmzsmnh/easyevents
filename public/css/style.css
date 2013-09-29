@@ -23,3 +23,19 @@ a {
 .form label.ui-input-text {
     margin-bottom: 1em;
 }
+
+.ui-btn-text a.ui-link-inherit {
+    width: 90%;
+}
+
+.half {
+    width: 50%;
+    margin: 0;
+    float: left;
+}
+
+.quater {
+    width: 35%;
+    margin: 0;
+    float: left;
+}
