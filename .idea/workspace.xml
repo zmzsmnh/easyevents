@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d53f7c6e-9453-40ec-bd9d-bddb86a2d6a1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/events.js" afterPath="$PROJECT_DIR$/public/js/events.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/bill.js" afterPath="$PROJECT_DIR$/routes/bill.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
     </list>
     <ignored path="easyevents.iws" />
@@ -68,7 +65,7 @@
       <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="97" selection-start="6059" selection-end="6075" vertical-scroll-proportion="-14.875">
+            <state line="25" column="31" selection-start="1507" selection-end="1515" vertical-scroll-proportion="-7.375">
               <folding />
             </state>
           </provider>
@@ -77,7 +74,7 @@
       <file leaf-file-name="events.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="62" selection-start="8647" selection-end="8647" vertical-scroll-proportion="0.13705584">
+            <state line="254" column="84" selection-start="12623" selection-end="12623" vertical-scroll-proportion="0.78680205">
               <folding />
             </state>
           </provider>
@@ -179,10 +176,10 @@
         <option value="$PROJECT_DIR$/routes/event.js" />
         <option value="$PROJECT_DIR$/public/claimverify.html" />
         <option value="$PROJECT_DIR$/public/payverify.html" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/routes/bill.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/js/events.js" />
       </list>
     </option>
@@ -546,7 +543,11 @@
       <created>1380462608976</created>
       <updated>1380462608976</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="modify a lot">
+      <created>1380467899507</created>
+      <updated>1380467899507</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -737,14 +738,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="97" selection-start="6059" selection-end="6075" vertical-scroll-proportion="-14.875">
+        <state line="25" column="31" selection-start="1507" selection-end="1515" vertical-scroll-proportion="-7.375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="62" selection-start="8647" selection-end="8647" vertical-scroll-proportion="0.13705584">
+        <state line="254" column="84" selection-start="12623" selection-end="12623" vertical-scroll-proportion="0.78680205">
           <folding />
         </state>
       </provider>

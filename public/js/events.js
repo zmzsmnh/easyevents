@@ -3,6 +3,7 @@ var currentStep=0;
 var local = {};
 var placerequest;
 var userrequest;
+var navtitles = ["Easy Events", "Step 1: New Event", "Step 2: Choose Places", "Step 3: Add Participants"];
 $(function(){
     $("#a_left").hide();
 
@@ -10,14 +11,14 @@ $(function(){
         local['latitude'] = pos.coords.latitude;
         local['longitude'] = pos.coords.longitude;
         bindEvents();
-    }
+    };
 
     var needzipcode = function() {
         local['zip'] = "95136";
         bindEvents();
         return;
         $("#a_zip_dialog").click();
-    }
+    };
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(savePosition, function(err) {
              needzipcode();
@@ -33,6 +34,7 @@ $(function(){
             if(i == events.length - 1){
                 $("#e_events").listview('refresh');
                 $("#e_events li").click(function() {
+                    $("#lb_title").text("Event Detail");
                     $(this).siblings("li").removeClass("active");
                     $(this).addClass("active");
                     var event = $.parseJSON($(this).find("a span").text());
@@ -72,6 +74,7 @@ $(function(){
                             $("#a_right .ui-btn-text").text("Claim");
                             $("#a_right .ui-icon").removeClass("ui-icon-arrow-r").addClass("ui-icon-edit");
                             $("#a_right").addClass('claim').attr("data-icon", "edit");
+                            $("#lb_title").text(navtitles[0]);
                         });
                         $("#a_right").unbind('click').click(function() {
                             var claim = {};
@@ -107,9 +110,11 @@ function bindEvents() {
         $("#a_right .ui-icon").removeClass("ui-icon-plus").addClass("ui-icon-arrow-r");
         $("#a_right").addClass('next').attr("data-icon", "arrow-r").show();
         currentStep=1;
+        $("#lb_title").text(navtitles[currentStep]);
 
         $("#a_right.next").unbind('click').click(function(){
             currentStep++;
+            $("#lb_title").text(navtitles[currentStep]);
             $("#div_events > div").not(".form.step" + currentStep).hide();
             $("#div_events > div.form.step" + currentStep).show();
             if(currentStep >= 3){
@@ -141,7 +146,8 @@ function bindEvents() {
         });
 
         $("#a_left.back").unbind('click').click(function(e) {
-            currentStep -= 1;
+            currentStep--;
+            $("#lb_title").text(navtitles[currentStep]);
             $("#div_events > div").not(".form.step" + currentStep).hide();
             $("#div_events > div.form.step" + currentStep).show();
             if(currentStep == 0){
@@ -235,16 +241,18 @@ function bindEvents() {
                         $("#a_right").hide();
                         $("#div_events > div").not(".payment").hide();
                         $("#div_events > div.payment").show();
+                        $("#lb_title").text(navtitles[0]);
                     });
                     $("#a_right").unbind('click').click(function() {
-                        var receiver = $("#p_list li.active").attr(id);
+                        var receiver = $("#p_list li.active").attr('id');
                         $.post("/expense/pay", {receiver: receiver}, function(data) {
                             $("#li_pm").click();
                         });
                     });
+                    $("#lb_title").text(mapping[$("#p_list li.active").attr('id')]);
 
                     $("#r_list").empty();
-                    $.getJSON("/expense/detail?p="+$("#p_list li.active")[0].id, function(bills) {
+                    $.getJSON("/expense/detail?p="+$("#p_list li.active").attr('id'), function(bills) {
                         $.each(bills, function(i, bill){
                             var html = "<li id='" + bill._id + "' data-amount='" + bill.amount + "'><a href=\"#\"><div class='quater'>" + bill.description + "</div>" + bill.amount + "</a></li>";
                             $("#r_list").append(html);
