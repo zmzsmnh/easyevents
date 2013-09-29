@@ -43,3 +43,7 @@ a {
     float: left;
     overflow: hidden;
 }
+
+ol[data-role=listview] {
+    height: 40em;
+}
