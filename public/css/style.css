@@ -31,6 +31,7 @@ a {
 .half {
     width: 50%;
     margin: 0;
+    padding-right: 2em;
     float: left;
     overflow: hidden;
 }
@@ -38,6 +39,7 @@ a {
 .quater {
     width: 40%;
     margin: 0;
+    padding-right: 2em;
     float: left;
     overflow: hidden;
 }
