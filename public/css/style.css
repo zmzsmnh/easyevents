@@ -31,15 +31,15 @@ a {
 .half {
     width: 50%;
     margin: 0;
-    padding-right: 2em;
+    padding-right: 1em;
     float: left;
     overflow: hidden;
 }
 
 .quater {
-    width: 40%;
+    width: 35%;
     margin: 0;
-    padding-right: 2em;
+    padding-right: 1em;
     float: left;
     overflow: hidden;
 }
