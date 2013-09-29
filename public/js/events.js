@@ -223,7 +223,7 @@ function bindEvents() {
                 $("#p_list").empty();
                 var mapping = res.mapping;
                 $.each(res.results, function(partner, amount) {
-                    var html = "<li id='" + partner + "' data-amount='" + amount + "'><a href=\"#\"><div class='quater'>" + mapping[partner] + "</div>" + amount + "</a></li>";
+                    var html = "<li id='" + partner + "' data-amount='" + amount + "'><a href=\"#\"><div class='half'>" + mapping[partner] + "</div>" + amount + "</a></li>";
                     $("#p_list").append(html);
                 });
                 $("#p_list").listview('refresh');
@@ -254,7 +254,7 @@ function bindEvents() {
                     $("#r_list").empty();
                     $.getJSON("/expense/detail?p="+$("#p_list li.active").attr('id'), function(bills) {
                         $.each(bills, function(i, bill){
-                            var html = "<li id='" + bill._id + "' data-amount='" + bill.amount + "'><a href=\"#\"><div class='quater'>" + bill.description + "</div>" + bill.amount + "</a></li>";
+                            var html = "<li id='" + bill._id + "' data-amount='" + bill.amount + "'><a href=\"#\"><div class='half'>" + bill.description + "</div>" + bill.amount + "</a></li>";
                             $("#r_list").append(html);
                         });
                         $("#r_list").listview('refresh');
