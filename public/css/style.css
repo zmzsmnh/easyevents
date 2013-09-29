@@ -32,10 +32,12 @@ a {
     width: 50%;
     margin: 0;
     float: left;
+    overflow: hidden;
 }
 
 .quater {
     width: 40%;
     margin: 0;
     float: left;
+    overflow: hidden;
 }
