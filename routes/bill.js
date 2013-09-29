@@ -69,10 +69,6 @@ exports.listbillsummary = function(req, res) {
     var userid = req.session.user._id;
     console.log(userid);
     billDAL.find({$or: [{creditor: userid, status: 1}, {debitor: userid, status: 1}]}).toArray(function(err, bills) {
-        if(bills.length == 0) {
-            res.send();
-            return ;
-        }
         var summary = {};
         for(var i in bills) {
             if(bills[i].creditor != userid) {
@@ -87,14 +83,14 @@ exports.listbillsummary = function(req, res) {
                 }
                 summary[bills[i].debitor] -= bills[i].amount;
             }
-            userDAL.find({_id: {$in: Object.keys(summary)}}).toArray(function(err, docs) {
-                var mapping = {};
-                for(var i in docs) {
-                    mapping[docs[i]._id] = docs[i].name;
-                }
-                res.send({id: userid, results: summary, mapping: mapping});
-            })
         }
+        userDAL.find({_id: {$in: Object.keys(summary)}}).toArray(function(err, docs) {
+            var mapping = {};
+            for(var i in docs) {
+                mapping[docs[i]._id] = docs[i].name;
+            }
+            res.send({id: userid, results: summary, mapping: mapping});
+        })
     })
 }
 
