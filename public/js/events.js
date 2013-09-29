@@ -109,7 +109,7 @@ $(function(){
 })
 
 function bindEvents() {
-    $("#a_right.add").click(function(){
+    $("#a_right.add").unbind('click').click(function(){
         $("#div_events > div").not(".form.step1").hide();
         $("#div_events > div.form.step1").show();
         $("#a_left .ui-btn-text").text("Back");
