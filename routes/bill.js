@@ -66,7 +66,7 @@ exports.verifyclaim = function(req, res) {
 
 exports.listbillsummary = function(req, res) {
     var userid = req.session.user._id;
-
+    console.log(userid);
     billDAL.find({status: 1, $or: [{creditor: userid}, {debitor: userid}]}).toArray(function(err, bills) {
         if(bills.length == 0) {
             res.send();
